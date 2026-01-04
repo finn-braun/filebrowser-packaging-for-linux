@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+# Debian: remove / upgrade
+# RPM: 0 (remove) / 1 (upgrade)
+if [ "$1" = "remove" ] || [ "$1" = "0" ] || [ "$1" = "purge" ]; then
+    systemctl stop filebrowser.service || true
+    systemctl disable filebrowser.service || true
+    systemctl daemon-reload || true
+fi
+
+# Only stop during upgrade, do not disable
+if [ "$1" = "upgrade" ] || [ "$1" = "1" ]; then
+    systemctl stop filebrowser.service || true
+fi
+
+exit 0

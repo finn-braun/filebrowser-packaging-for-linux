@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+CONFIG_DIR="/etc/filebrowser"
+SERVICE_USER="filebrowser"
+SERVICE_GROUP="filebrowser"
+
+# Note: $1 is 0 during RPM uninstallation, and $1 is purge during Debian purge.
+if [ "$1" = "purge" ] || [ "$1" = "0" ]; then
+    rm -f "$CONFIG_DIR/filebrowser.db"
+    rm -f "$CONFIG_DIR/filebrowser.json"
+    rmdir "$CONFIG_DIR" 2>/dev/null || true
+
+    if getent passwd "$SERVICE_USER" >/dev/null 2>&1; then
+        userdel "$SERVICE_USER" || true
+    fi
+
+    if getent group "$SERVICE_GROUP" >/dev/null 2>&1; then
+        groupdel "$SERVICE_GROUP" || true
+    fi
+fi
+
+exit 0

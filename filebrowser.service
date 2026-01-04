@@ -1,0 +1,13 @@
+[Unit]
+Description=File Browser
+After=network.target
+
+[Service]
+User=filebrowser
+Group=filebrowser
+WorkingDirectory=/etc/filebrowser
+ExecStart=/usr/bin/filebrowser -c /etc/filebrowser/filebrowser.json
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,40 @@
+#!/bin/sh
+set -e
+
+CONFIG_DIR="/etc/filebrowser"
+SERVICE_USER="filebrowser"
+SERVICE_GROUP="filebrowser"
+ROOT_DIR="/mnt/filebrowser"
+
+# Determine whether to install (install/1) or upgrade (upgrade/2)
+# We can also check if the user exists during the upgrade process to prevent accidental deletion.
+if [ "$1" = "install" ] || [ "$1" = "1" ] || [ "$1" = "upgrade" ] || [ "$1" = "2" ]; then
+
+    # 1. Create a Group (if it does not already exist)
+    if ! getent group "$SERVICE_GROUP" >/dev/null 2>&1; then
+        # -r Create system group
+        groupadd -r "$SERVICE_GROUP"
+    fi
+    # 2. Create User (if it does not already exist)
+    if ! getent passwd "$SERVICE_USER" >/dev/null 2>&1; then
+        # -r Create system user
+        # -g Specify group
+        # -d Specify home directory (services are usually set to /nonexistent or /var/lib/xxx)
+        # -s Disable shell login
+        useradd -r -g "$SERVICE_GROUP" -d /nonexistent -s /usr/sbin/nologin -c "Filebrowser Service User" "$SERVICE_USER"
+    fi
+
+    # 3. Create the configuration directory (created during installation/upgrade)
+    if [ ! -d "$CONFIG_DIR" ]; then
+        mkdir -p "$CONFIG_DIR"
+    fi
+    chown -R $SERVICE_USER:$SERVICE_GROUP "$CONFIG_DIR"
+
+    if [ ! -d "$ROOT_DIR" ]; then
+        mkdir -p "$ROOT_DIR"
+        chown $SERVICE_USER:$SERVICE_GROUP "$ROOT_DIR"
+        chmod 775 "$ROOT_DIR"
+    fi
+fi
+
+exit 0
