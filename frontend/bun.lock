@@ -9,6 +9,7 @@
         "@vueuse/core": "^14.0.0",
         "@vueuse/integrations": "^14.0.0",
         "ace-builds": "^1.43.2",
+        "csv-parse": "^6.1.0",
         "dayjs": "^1.11.13",
         "dompurify": "^3.2.6",
         "epubjs": "^0.3.93",
@@ -581,6 +582,8 @@
     "cssesc": ["cssesc@3.0.0", "", { "bin": { "cssesc": "bin/cssesc" } }, "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg=="],
 
     "csstype": ["csstype@3.2.3", "", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
+
+    "csv-parse": ["csv-parse@6.1.0", "", {}, "sha512-CEE+jwpgLn+MmtCpVcPtiCZpVtB6Z2OKPTr34pycYYoL7sxdOkXDdQ4lRiw6ioC0q6BLqhc6cKweCVvral8yhw=="],
 
     "custom-error-instance": ["custom-error-instance@2.1.1", "", {}, "sha512-p6JFxJc3M4OTD2li2qaHkDCw9SfMw82Ldr6OC9Je1aXiGfhx2W8p3GaoeaGrPJTUN9NirTM/KTxHWMUdR1rsUg=="],
 
