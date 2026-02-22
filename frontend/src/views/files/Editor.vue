@@ -94,6 +94,7 @@ import { useFileStore } from "@/stores/file";
 import { useLayoutStore } from "@/stores/layout";
 import { getEditorTheme } from "@/utils/theme";
 import { marked } from "marked";
+import markedKatex from "marked-katex-extension";
 import { inject, onBeforeUnmount, onMounted, ref, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 import { onBeforeRouteUpdate, useRoute, useRouter } from "vue-router";
@@ -118,6 +119,11 @@ const previewContent = ref("");
 const isMarkdownFile =
   fileStore.req?.name.endsWith(".md") ||
   fileStore.req?.name.endsWith(".markdown");
+const katexOptions = {
+  output: "mathml" as const,
+  throwOnError: false,
+};
+marked.use(markedKatex(katexOptions));
 
 const isSelectionEmpty = ref(true);
 
@@ -227,6 +233,11 @@ const initEditor = (fileContent: string) => {
 
   editor.value.setFontSize(fontSize.value);
   editor.value.focus();
+
+  const selection = editor.value?.getSelection();
+  selection.on("changeSelection", function () {
+    isSelectionEmpty.value = selection.isEmpty();
+  });
 };
 
 const keyEvent = (event: KeyboardEvent) => {
@@ -290,6 +301,7 @@ const close = () => {
       prompt: "discardEditorChanges",
       confirm: (event: Event) => {
         event.preventDefault();
+        editor.value?.session.getUndoManager().reset();
         finishClose();
       },
       saveAction: async () => {
