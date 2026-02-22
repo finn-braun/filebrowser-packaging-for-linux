@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.60.0](https://github.com/filebrowser/filebrowser/compare/v2.59.0...v2.60.0) (2026-02-21)
+
+
+### Features
+
+* Updates for project File Browser ([#5764](https://github.com/filebrowser/filebrowser/issues/5764)) ([9940bdd](https://github.com/filebrowser/filebrowser/commit/9940bdd663ff5141110778524b8a22c957036e78))
+
+
+### Bug Fixes
+
+* always show separators and encoding list in the CSV viewer ([#5774](https://github.com/filebrowser/filebrowser/issues/5774)) ([3169a14](https://github.com/filebrowser/filebrowser/commit/3169a14a4d63a0a11a5288f4f3a674c0a0edb972))
+* modal lifecycle issues, multiple modals, new directory creation and discard changes behavior ([#5773](https://github.com/filebrowser/filebrowser/issues/5773)) ([200d501](https://github.com/filebrowser/filebrowser/commit/200d5015472c79d5caa683ea291ebf500356a39f))
+
+## [2.59.0](https://github.com/filebrowser/filebrowser/compare/v2.58.0...v2.59.0) (2026-02-15)
+
+
+### Features
+
+* add 'Open direct' button to images ([#5678](https://github.com/filebrowser/filebrowser/issues/5678)) ([804b14b](https://github.com/filebrowser/filebrowser/commit/804b14b698aa218fa5c2aaba687e72c5f7617f0f))
+* Updates for project File Browser ([#5760](https://github.com/filebrowser/filebrowser/issues/5760)) ([63a76ef](https://github.com/filebrowser/filebrowser/commit/63a76ef18c51121e08634810a894c1e22a870428))
+
+
+### Bug Fixes
+
+* render equations in markdown preview ([#5745](https://github.com/filebrowser/filebrowser/issues/5745)) ([0467326](https://github.com/filebrowser/filebrowser/commit/0467326d5c082c42c0ede88ee2d3472f5fb65600))
+
 ## [2.58.0](https://github.com/filebrowser/filebrowser/compare/v2.57.1...v2.58.0) (2026-02-14)
 
 
