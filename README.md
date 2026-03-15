@@ -28,10 +28,19 @@ It provides installation packages for Debian (.deb) and Fedora (.rpm) Linux syst
     sudo systemctl start filebrowser.service
     ```
 
+<<<<<<< HEAD
 2. **Note:** Retrieve the randomly generated administrator password created during the first service startup:
     ```bash
     journalctl -u filebrowser.service -b --no-pager -o cat --grep="initialized with randomly generated password" | tail -n1 | awk -F'password: ' '{print "initializ password:" $2}'
     ```
+=======
+- It can take a while until someone gets back to you. Please be patient.
+- [Issues](https://github.com/filebrowser/filebrowser/issues) are meant to track bugs. Unrelated issues will be converted into [discussions](https://github.com/filebrowser/filebrowser/discussions).
+- The priority is triaging issues, addressing security issues and reviewing pull requests meant to solve bugs.
+- No new features are planned. Pull requests for new features are not guaranteed to be reviewed.
+
+Please read [@hacdias' personal reflection](https://hacdias.com/2026/03/11/filebrowser/) on the project status.
+>>>>>>> origin/master
 
 3. Access the Web interface:
     * Default address: `http://YOUR_SERVER_IP:59230`
